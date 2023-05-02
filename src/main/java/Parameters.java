@@ -20,12 +20,12 @@ public class Parameters {
     public static final String DOWN_PAYMENT = "50";
 
     /* личная информация */
-    public static final String FIO = "ЗАЙЦЕВ НИКИТА ГЕННАДИЕВИЧ";
+    public static final String FIO = "ЛАЗАРЕВ ВЛАДИМИР БЕДРОСОВИЧ";
     public static final String PHONE = "(989) 192-30-12";
     /* паспорт */
-    public static final String PASSPORT = "6021 709906";
-    public static final String PASSPORT_DATE_OF_ISSUE = "02.02.2021";
-    public static final String BIRTH_DAY = "01.01.1997";
+    public static final String PASSPORT = "6220 599953";
+    public static final String PASSPORT_DATE_OF_ISSUE = "02.02.2020";
+    public static final String BIRTH_DAY = "17.06.1984";
     /* водительское удостоверение */
     public static final String DATE_DRIVING_LICENCE = "01.01.2020";
     /* адрес регистрации */
@@ -36,7 +36,7 @@ public class Parameters {
     public static final String CONFIDANT_PHONE = "(987) 613-23-12";
     /* место работы клиента */
     public static final String JOB_TITLE = "Доцент";
-    public static final String EMPLOYER = "ГПБ АО";
+    public static final String EMPLOYER = "БАНК ГПБ";
     public static final String START_DATE = "01.01.2020";
     /* доход в месяц */
     public static final String SALARY = "400000";

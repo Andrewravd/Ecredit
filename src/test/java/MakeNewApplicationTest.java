@@ -102,16 +102,16 @@ public class MakeNewApplicationTest {
         /* заполнение данных доверенного лица */
         steps.inputValue(preparePage.getConfidantFio(), Parameters.CONFIDANT_FIO);
         steps.inputValue(preparePage.getConfidantPhone(), Parameters.CONFIDANT_PHONE);
-        /* заполнение место работы клиента */
-        steps.clickOnElementInDropDown(preparePage.getTypeOfEmployment(), preparePage.getEmployee());
-        steps.clickOnElementAndConfirm(preparePage.getJobTitle(), Parameters.JOB_TITLE, preparePage.getJob());
-        steps.clickOnElementAndConfirm(preparePage.getEmployer(), Parameters.EMPLOYER, preparePage.getEmployerName());
-        steps.inputValue(preparePage.getStartDate(), Parameters.START_DATE);
-        steps.clickOnElementInDropDown(preparePage.getExperience(), preparePage.getExperienceAge());
         /* заполнение дохода */
         steps.inputValue(preparePage.getSalary(), Parameters.SALARY);
         steps.inputValue(preparePage.getAdditionalIncome(), Parameters.ADDITIONAL_INCOME);
         steps.uploadDocument(preparePage.getInputConcedence(), Parameters.CONCEDENCE_PATH);
+        /* заполнение место работы клиента */
+        steps.clickOnElementInDropDown(preparePage.getTypeOfEmployment(), preparePage.getEmployee());
+        steps.clickOnElementAndConfirm(preparePage.getJobTitle(), Parameters.JOB_TITLE, preparePage.getJob());
+        steps.inputValue(preparePage.getStartDate(), Parameters.START_DATE);
+        steps.clickOnElementInDropDown(preparePage.getExperience(), preparePage.getExperienceAge());
+        steps.clickOnElementAndConfirm(preparePage.getEmployer(), Parameters.EMPLOYER, preparePage.getEmployerName());
         steps.clickOnElement(preparePage.getButtonSendApplication());
         sleep(50000);
     }
