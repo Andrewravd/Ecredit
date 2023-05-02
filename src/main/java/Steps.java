@@ -5,9 +5,10 @@ import org.openqa.selenium.Keys;
 import java.time.Duration;
 import java.util.NoSuchElementException;
 
-import static com.codeborne.selenide.Condition.enabled;
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.switchTo;
+
 
 public class Steps {
     @Step("Авторизация пользователя {SelenideElement}")
@@ -25,12 +26,15 @@ public class Steps {
     @Step("Клик по элементу {SelenideElement}")
     public void clickOnElement(SelenideElement element) {
         element.shouldBe(enabled, Duration.ofSeconds(60));
-        sleep(700);
         element.click();
-        sleep(700);
 
     }
 
+    @Step("Поле заполнено {SelenideElement}")
+    public void checkInputIsNotEmpty(SelenideElement element) {
+        element.shouldBe(not(empty), Duration.ofSeconds(60));
+
+    }
     @Step("выбор элемента {SelenideElement} из выпадающего списка")
     public void clickOnElementInDropDown(SelenideElement element, SelenideElement dropDownElement) {
         element.shouldBe(enabled, Duration.ofSeconds(60));
@@ -42,20 +46,18 @@ public class Steps {
 
     @Step("заполнение поля и потверждение выбора кликом")
     public void clickOnElementAndConfirm(SelenideElement element, String value, SelenideElement dropDownElement) {
-        sleep(700);
-        element.shouldBe(enabled, Duration.ofSeconds(10));
+        element.shouldBe(enabled, Duration.ofSeconds(60));
         element.sendKeys(value);
-        dropDownElement.shouldBe(enabled, Duration.ofSeconds(60));
-        sleep(700);
+        element.shouldBe(not(empty), Duration.ofSeconds(60));
+        dropDownElement.shouldBe(exist, Duration.ofSeconds(10));
         dropDownElement.click();
     }
 
     @Step("заполнение поля и потверждение выбора через ENTER")
     public void inputValueAndConfirm(SelenideElement element, String value) {
-        sleep(700);
         element.shouldBe(enabled, Duration.ofSeconds(60));
         element.sendKeys(value);
-        sleep(300);
+        element.shouldBe(not(empty), Duration.ofSeconds(60));
         element.click();
         element.sendKeys(Keys.ENTER);
     }
@@ -64,37 +66,32 @@ public class Steps {
     public void clearInput(SelenideElement element) {
         element.shouldBe(enabled, Duration.ofSeconds(60));
         element.click();
-        sleep(700);
         element.sendKeys(Keys.COMMAND + "A");
         element.sendKeys(Keys.BACK_SPACE);
-        sleep(700);
 
     }
 
     @Step("заполнение поля {SelenideElement}")
     public void inputValue(SelenideElement element, String value) {
-        sleep(700);
         element.shouldBe(enabled, Duration.ofSeconds(60));
         element.click();
-        sleep(700);
         element.sendKeys(value);
-        sleep(300);
-        element.sendKeys(Keys.ENTER);
+        element.shouldBe(not(empty), Duration.ofSeconds(60));
     }
 
     @Step("перезаполнение поля {SelenideElement}")
     public void clearThenInputValue(SelenideElement div, SelenideElement input, String value) {
         div.shouldBe(visible, Duration.ofSeconds(60));
         div.click();
-        sleep(200);
+        input.shouldBe(exist, Duration.ofSeconds(60));
         input.click();
-        input.sendKeys(Keys.COMMAND + "A");
+        input.sendKeys( Keys.COMMAND + "A");
         input.sendKeys(Keys.BACK_SPACE);
-        sleep(300);
         input.sendKeys(value);
+        input.shouldBe(not(empty), Duration.ofSeconds(60));
     }
 
-    @Step("заполенние кармана файлом {SelenideElement}")
+    @Step("загрузка файла в карман {String}")
     public void uploadDocument(SelenideElement element, String path) {
         element.shouldBe(enabled, Duration.ofSeconds(60));
         element.sendKeys(path);

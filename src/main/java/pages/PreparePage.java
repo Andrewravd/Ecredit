@@ -68,7 +68,11 @@ public class PreparePage {
     private SelenideElement employer = $(By.xpath("//div[text()=" +
             "'Юридическое название места работы или ИНН организации']/preceding-sibling::div/input"));
 
+//    private SelenideElement employerName = $(By.xpath("//div[@class='react-dadata__" +
+//            "suggestion react-dadata__suggestion--current']"));
+
     private SelenideElement employerName = $(By.xpath("//*[@id=\"work_organization_name\"]/div/div[1]/div/div[1]"));
+    private SelenideElement employerPhone = $(By.xpath("//input[@label='Телефон организации']"));
 
     private SelenideElement startDate = $("#work_careerStartTime input");
 
@@ -208,6 +212,10 @@ public class PreparePage {
 
     public SelenideElement getLinkSendApplication() {
         return linkSendApplication;
+    }
+
+    public SelenideElement getEmployerPhone() {
+        return employerPhone;
     }
 }
 
