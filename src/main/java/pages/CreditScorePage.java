@@ -1,119 +1,217 @@
 package pages;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
-import java.time.Duration;
-
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
 
 
 public class CreditScorePage {
 
-
-    private SelenideElement selectCarBrand = $("select#car_brand_id");
-
-    private SelenideElement selectCarModel = $("select#car_model_id");
-
-    private SelenideElement selectCarComplection = $("#car_id");
-
-    private SelenideElement selectCaskoPrice = $(By.xpath(".//input[@name='kasko_price_val']"));
-
-    private SelenideElement buttonGetCount = $("#btn_calculation_get");
-
-    private SelenideElement selectOffer = $(By.xpath("/html/body/div[3]/div[2]/div[8]/div/div[2]/div[2]/div/div[1]/div[5]/div[9]/div[2]/table/tbody[2]/tr[1]/td[5]"));
-
-    private SelenideElement safeEquals = $("#btn_calculation_save");
-
-    private SelenideElement getName = $("#saveCalculationForm input[name = 'client_name']");
-
-
-    private SelenideElement getSurname = $("input[name='client_surname']");
-
-    private SelenideElement getPhone = $("#client_phone");
-
-    private SelenideElement buttonSaveEquals = $("#saveCalculationForm > div.text_center > button");
-
     private SelenideElement bunner = $("#carrot-popup-frame");
 
-    private SelenideElement buttonClose = $("#alert-btn-ok");
+    /* блок с данными о машине*/
 
+    private SelenideElement vin = $(By.xpath(".//input[@label='Госномер или VIN автомобиля']"));
 
+    private SelenideElement newСar = $(By.xpath(".//button[text()='Новый']"));
 
+    private SelenideElement brand = $(By.xpath("//div[@id ='brand']/div/div"));
 
+    private SelenideElement brandOmoda = $(By.xpath("//p[text()='OMODA']/parent::li"));
 
-    public void select_mark_car() {
-        selectCarBrand.shouldBe(Condition.visible, Duration.ofSeconds(20));
-        selectCarBrand.selectOption("Hyundai");
+    private SelenideElement model = $(By.xpath("//div[@id ='model']/div/div"));
 
+    private SelenideElement modelOmoda = $(By.xpath("//p[text()='C5']/parent::li"));
+
+    private SelenideElement vehicleEquipment = $(By.xpath("//div[@id ='version']/div/div"));
+
+    private SelenideElement vehicleEquipmentOmoda = $(By.xpath("//p[text()='Ultimate 1.5Т" +
+            " 147 л.с. CVT (2022)']/parent::li"));
+
+    private SelenideElement yearOfIssue = $(By.xpath(".//div[text()='Год выпуска']/parent::div"));
+
+    private SelenideElement chooseYear = $(By.xpath(".//p[text()='2022']/parent::li"));
+
+    private SelenideElement buttonExtra = $(By.xpath(".//button[text()='Дополнительно']"));
+
+    private SelenideElement power = $(By.xpath(".//input[@label ='Мощность, лc']"));
+
+    private SelenideElement numberOfEngine = $(By.xpath(".//input[@label ='Номер двигателя']"));
+
+    private SelenideElement numberOfBody = $(By.xpath(".//input[@label ='Номер кузова']"));
+
+    private SelenideElement maxWeight = $(By.xpath(".//input[@label ='Максимальная масса, кг']"));
+
+    private SelenideElement engineCapacity = $(By.xpath(".//input[@label ='Объём двигателя, см³ ']"));
+
+    private SelenideElement epts = $(By.xpath(".//input[@label ='Серия, номер ПТС / ЭПТС']"));
+
+    private SelenideElement documents = $(By.xpath(".//p[text()='Дата выдачи ПТС / ЭПТС']/parent::div"));
+
+    private SelenideElement dateOfIssueEpts = $(By.xpath(".//input[@name='input']"));
+
+    /* расчитать кредит*/
+
+    private SelenideElement downPayment = $(By.xpath(".//div[text()='Первоначальный взнос, руб.']" +
+            "/parent::div/parent::div/following-sibling::div[1]"));
+
+    private SelenideElement downPaymentInput = $(By.xpath(".//input[@label='в %']"));
+
+    private SelenideElement insuranceAmount = $(By.xpath(".//input[@label='На страховки, руб.']"));
+
+    private SelenideElement buttonKasko = $(By.xpath(".//button[@name='requiredKasko']"));
+
+    private SelenideElement buttonCreditSubtype = $(By.xpath(".//button[@name='creditSubtype']"));
+
+    private SelenideElement creditOffer = $(By.xpath(".//div[text()='60 мес.']/parent::div"));
+
+    private SelenideElement buttonListOfCreditType = $(By.xpath("//button[text()='Ещё 5']"));
+
+    private SelenideElement creditWithInsurance = $(By.xpath("//*[@class='sc-BcYfy sc-jSgiRR gyjJJP eTNKyZ'][5]"));
+
+    private SelenideElement buttonSaveApplication = $(By.xpath(".//button[text()='Сохранить заявку']"));
+
+    /* ФИО и телефон клиента*/
+
+    private SelenideElement fioInput = $(By.xpath(".//input[@label ='Фамилия, имя клиента']"));
+
+    private SelenideElement clientPhoneInput = $(By.xpath(".//input[@label ='Телефон']"));
+
+    private SelenideElement saveApplicationButton = $(By.xpath(".//div[text()='Телефон']/parent::div/parent" +
+            "::div/following-sibling::button"));
+
+    public SelenideElement getVin() {
+        return vin;
     }
 
-    public void select_model_car() {
-        selectCarModel.shouldBe(Condition.visible, Duration.ofSeconds(20));
-        selectCarModel.selectOption("Creta");
-
-    }
-    public void select_complection_car() {
-        selectCarComplection.shouldBe(Condition.visible, Duration.ofSeconds(20));
-        selectCarComplection.selectOption("2.0 (149HP) 4WD BI2 (G043/G039) (2021) 21MY 6AT (1 674 000 ₽)");
-    }
-    public void inputKaskoPrice(){
-
-//        selectCaskoPrice.sendKeys(Keys.COMMAND + "A");
-//        sleep(1000);
-        selectCaskoPrice.doubleClick();
-        selectCaskoPrice.sendKeys("10000");
+    public SelenideElement getModel() {
+        return model;
     }
 
-    public void press_get_count_button () {
-        buttonGetCount.shouldBe(Condition.enabled, Duration.ofSeconds(60));
-        buttonGetCount.click();
+    public SelenideElement getYearOfIssue() {
+        return yearOfIssue;
     }
-    public void press_choose_someone_offer () {
-        selectOffer.click();
+
+    public SelenideElement getButtonExtra() {
+        return buttonExtra;
     }
-////    public void close_frame(){
-//        sleep(100);
-//        try {
-////            bunner.shouldBe(Condition.visible, Duration.ofSeconds(60));
-//            switchTo().frame(bunner);
-//            $("#carrotquest-messenger-body-big-cont > div.popup__controls > div").click();
-//        }
-//        catch (Exception e) {
-//            System.out.println("Something went wrong.");
-//        }
-//    }
-public void close_frame1(){
-    bunner.shouldBe(Condition.visible, Duration.ofSeconds(60));
-    switchTo().frame(bunner);
-    $("#carrotquest-messenger-body-big-cont > div.popup__controls > div").click();
+
+    public SelenideElement getPower() {
+        return power;
+    }
+
+    public SelenideElement getNumberOfEngine() {
+        return numberOfEngine;
+    }
+
+    public SelenideElement getNumberOfBody() {
+        return numberOfBody;
+    }
+
+    public SelenideElement getMaxWeight() {
+        return maxWeight;
+    }
+
+    public SelenideElement getEngineCapacity() {
+        return engineCapacity;
+    }
+
+    public SelenideElement getEpts() {
+        return epts;
+    }
+
+    public SelenideElement getDateOfIssueEpts() {
+        return dateOfIssueEpts;
+    }
+
+    public SelenideElement getDownPayment() {
+        return downPayment;
+    }
+
+    public SelenideElement getInsuranceAmount() {
+        return insuranceAmount;
+    }
+
+    public SelenideElement getButtonKasko() {
+        return buttonKasko;
+    }
+
+    public SelenideElement getButtonCreditSubtype() {
+        return buttonCreditSubtype;
+    }
+
+    public SelenideElement getCreditOffer() {
+        return creditOffer;
+    }
+
+    public SelenideElement getButtonSaveApplication() {
+        return buttonSaveApplication;
+    }
+
+    public SelenideElement getChooseYear() {
+        return chooseYear;
+    }
+
+    public SelenideElement getBunner() {
+        return bunner;
+    }
+
+    public SelenideElement getDocuments() {
+        return documents;
+    }
+
+    public SelenideElement getDownPaymentInput() {
+        return downPaymentInput;
+    }
+
+    public SelenideElement getFioInput() {
+        return fioInput;
+    }
+
+    public SelenideElement getClientPhoneInput() {
+        return clientPhoneInput;
+    }
+
+    public SelenideElement getSaveApplicationButton() {
+        return saveApplicationButton;
+    }
+
+    public SelenideElement getNewСar() {
+        return newСar;
+    }
+
+    public SelenideElement getBrand() {
+        return brand;
+    }
+
+    public SelenideElement getBrandOmoda() {
+        return brandOmoda;
+    }
+
+    public SelenideElement getModelOmoda() {
+        return modelOmoda;
+    }
+
+    public SelenideElement getVehicleEquipment() {
+        return vehicleEquipment;
+    }
+
+    public SelenideElement getVehicleEquipmentOmoda() {
+        return vehicleEquipmentOmoda;
+    }
+
+    public SelenideElement getButtonListOfCreditType() {
+        return buttonListOfCreditType;
+    }
+
+    public SelenideElement getCreditWithInsurance() {
+        return creditWithInsurance;
+    }
 }
-    public void press_save_equals (){
-        safeEquals.click();
-    }
-    public void input_name_client() {
-        getName.shouldBe(Condition.visible, Duration.ofSeconds(20));
-        getName.sendKeys("Иван");
-    }
-    public void input_surename_client() {
-        getSurname.shouldBe(Condition.visible, Duration.ofSeconds(20));
-        getSurname.sendKeys("Иванов");
-    }
-    public void input_telephone_number_client() {
-        getPhone.shouldBe(Condition.visible, Duration.ofSeconds(20));
-        getPhone.sendKeys("89281665121");
-    }
-    public void press_save_equals_client_information() {
-        buttonSaveEquals.shouldBe(Condition.visible, Duration.ofSeconds(20));
-        buttonSaveEquals.click();
-    }
-    public void click_new_application_confirm(){
-        buttonClose.shouldBe(Condition.visible, Duration.ofSeconds(20));
-        buttonClose.click();
-    }
 
-}
+
+
 
 
 
