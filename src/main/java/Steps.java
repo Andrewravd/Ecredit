@@ -12,8 +12,7 @@ import static com.codeborne.selenide.Selenide.switchTo;
 
 public class Steps {
     @Step("Авторизация пользователя {SelenideElement}")
-    public void login(SelenideElement login,
-                      SelenideElement password, SelenideElement buttonSignIn) {
+    public void login(SelenideElement login, SelenideElement password, SelenideElement buttonSignIn) {
         login.shouldBe(enabled, Duration.ofSeconds(60));
         password.shouldBe(enabled, Duration.ofSeconds(60));
         buttonSignIn.shouldBe(enabled, Duration.ofSeconds(60));
@@ -35,6 +34,7 @@ public class Steps {
         element.shouldBe(not(empty), Duration.ofSeconds(60));
 
     }
+
     @Step("выбор элемента {SelenideElement} из выпадающего списка")
     public void clickOnElementInDropDown(SelenideElement element, SelenideElement dropDownElement) {
         element.shouldBe(enabled, Duration.ofSeconds(60));
@@ -85,7 +85,7 @@ public class Steps {
         div.click();
         input.shouldBe(exist, Duration.ofSeconds(60));
         input.click();
-        input.sendKeys( Keys.COMMAND + "A");
+        input.sendKeys(Keys.COMMAND + "A");
         input.sendKeys(Keys.BACK_SPACE);
         input.sendKeys(value);
         input.shouldBe(not(empty), Duration.ofSeconds(60));

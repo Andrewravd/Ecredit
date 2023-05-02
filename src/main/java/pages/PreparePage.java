@@ -9,8 +9,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class PreparePage {
     /* загрузите документы*/
 
-    private SelenideElement inputDocuments = $(By.xpath(".//h4[text()='Загрузить документы']/" +
-            "parent::div/parent::div/following-sibling::input"));
+    private SelenideElement inputDocuments = $(By.xpath(".//h4[text()='Загрузить документы']/" + "parent::div/parent::div/following-sibling::input"));
 
     /* личная информация*/
 
@@ -40,8 +39,7 @@ public class PreparePage {
 
     private SelenideElement addressOfRegistration = $("#addressReg_fiasValue input");
 
-    private SelenideElement confirmAddress = $(By.xpath("//*[@id=\"addressReg_fiasValue\"]" +
-            "/div/div[1]/div/div[1]"));
+    private SelenideElement confirmAddress = $(By.xpath("//*[@id=\"addressReg_fiasValue\"]" + "/div/div[1]/div/div[1]"));
 
     private SelenideElement dateOfRegistration = $("#addressReg_regDate input");
 
@@ -49,8 +47,7 @@ public class PreparePage {
 
     private SelenideElement confidantFio = $("input[label='Фамилия, имя, отчество']");
 
-    private SelenideElement confidantFioConfirm = $(By.xpath("//*[@id=\"trustees_2208973_fullName\"]" +
-            "/div/div/div[2]/div"));
+    private SelenideElement confidantFioConfirm = $(By.xpath("//*[@id=\"trustees_2208973_fullName\"]" + "/div/div/div[2]/div"));
 
     private SelenideElement confidantPhone = $("#trustees_temp_phone > input");
 
@@ -60,13 +57,11 @@ public class PreparePage {
 
     private SelenideElement employee = $(By.xpath(".//p[text()='Наемный работник']/parent::li"));
 
-    private SelenideElement jobTitle = $(By.xpath("//div[text()='Название должности']" +
-            "/following-sibling::input"));
+    private SelenideElement jobTitle = $(By.xpath("//div[text()='Название должности']" + "/following-sibling::input"));
 
     private SelenideElement job = $(By.xpath(".//mark[text()='Доцент']/parent::span/parent::button"));
 
-    private SelenideElement employer = $(By.xpath("//div[text()=" +
-            "'Юридическое название места работы или ИНН организации']/preceding-sibling::div/input"));
+    private SelenideElement employer = $(By.xpath("//div[text()=" + "'Юридическое название места работы или ИНН организации']/preceding-sibling::div/input"));
 
 //    private SelenideElement employerName = $(By.xpath("//div[@class='react-dadata__" +
 //            "suggestion react-dadata__suggestion--current']"));

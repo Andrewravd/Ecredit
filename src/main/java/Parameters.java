@@ -1,6 +1,6 @@
 public class Parameters {
     /* адрес сайта */
-    public static final String URL ="https://sb-bank-go.e-credit.one/login";
+    public static final String URL = "https://sb-bank-go.e-credit.one/login";
 
     /* путь до документов */
     public static final String PASSPORT_PATH = "/Users/andrew/new ecredit/src/main/resources/passport.pdf";
@@ -41,20 +41,5 @@ public class Parameters {
     /* доход в месяц */
     public static final String SALARY = "400000";
     public static final String ADDITIONAL_INCOME = "0";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
