@@ -1,6 +1,6 @@
 public class Parameters {
     /* адрес сайта */
-    public static final String URL ="https://sb-bank-go.e-credit.one/login";
+    public static final String URL = "https://sb-bank-go.e-credit.one/login";
 
     /* путь до документов */
     public static final String PASSPORT_PATH = "/Users/andrew/new ecredit/src/main/resources/passport.pdf";
@@ -20,12 +20,12 @@ public class Parameters {
     public static final String DOWN_PAYMENT = "50";
 
     /* личная информация */
-    public static final String FIO = "ЛАЗАРЕВ ВЛАДИМИР БЕДРОСОВИЧ";
-    public static final String PHONE = "(989) 192-30-12";
+    public static final String FIO = "СОРОКИН ДМИТРИЙ ДМИТРИЕВИЧ";
+    public static final String PHONE = "(989) 192-31-19";
     /* паспорт */
-    public static final String PASSPORT = "6220 599953";
-    public static final String PASSPORT_DATE_OF_ISSUE = "02.02.2020";
-    public static final String BIRTH_DAY = "17.06.1984";
+    public static final String BIRTH_DAY = "04.01.1993";
+    public static final String PASSPORT = "4822 407795";
+    public static final String PASSPORT_DATE_OF_ISSUE = "02.05.2023";
     /* водительское удостоверение */
     public static final String DATE_DRIVING_LICENCE = "01.01.2020";
     /* адрес регистрации */
@@ -41,20 +41,5 @@ public class Parameters {
     /* доход в месяц */
     public static final String SALARY = "400000";
     public static final String ADDITIONAL_INCOME = "0";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

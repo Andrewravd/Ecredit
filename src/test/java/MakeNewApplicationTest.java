@@ -8,8 +8,6 @@ import pages.LoginPage;
 import pages.MainPage;
 import pages.PreparePage;
 
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.sleep;
 
 
 public class MakeNewApplicationTest {
@@ -26,7 +24,7 @@ public class MakeNewApplicationTest {
         mainPage = new MainPage();
         creditScorePage = new CreditScorePage();
         preparePage = new PreparePage();
-        open(Parameters.URL);
+        Selenide.open(Parameters.URL);
     }
 
     @Test
@@ -113,7 +111,7 @@ public class MakeNewApplicationTest {
         steps.clickOnElementInDropDown(preparePage.getExperience(), preparePage.getExperienceAge());
         steps.clickOnElementAndConfirm(preparePage.getEmployer(), Parameters.EMPLOYER, preparePage.getEmployerName());
         steps.clickOnElement(preparePage.getButtonSendApplication());
-        sleep(50000);
+        Selenide.sleep(50000);
     }
 
     @After

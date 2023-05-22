@@ -68,7 +68,8 @@ public class CreditScorePage {
 
     private SelenideElement buttonListOfCreditType = $(By.xpath("//button[text()='Ещё 5']"));
 
-    private SelenideElement creditWithInsurance = $(By.xpath("//*[@class='sc-BcYfy sc-jSgiRR gyjJJP eTNKyZ'][5]"));
+    private SelenideElement creditWithInsurance = $(By.xpath("//h3[text()='8.70 %']/parent::div" +
+            "/parent::div/parent::div/parent::div/parent::div/parent::li"));
 
     private SelenideElement buttonSaveApplication = $(By.xpath(".//button[text()='Сохранить заявку']"));
 
