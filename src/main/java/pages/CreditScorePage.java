@@ -66,10 +66,10 @@ public class CreditScorePage {
 
     private SelenideElement creditOffer = $(By.xpath(".//div[text()='60 мес.']/parent::div"));
 
-    private SelenideElement buttonListOfCreditType = $(By.xpath("//button[text()='Ещё 5']"));
+    private SelenideElement buttonListOfCreditType = $(By.xpath("//button[text()='Ещё 13']"));
 
-    private SelenideElement creditWithInsurance = $(By.xpath("//h3[text()='8.70 %']/parent::div" +
-            "/parent::div/parent::div/parent::div/parent::div/parent::li"));
+    private SelenideElement creditWithInsurance = $(By.xpath("//h3[text()='NEW OMODA CLASSIC_4']/" +
+            "parent::div/parent::div/parent::div/parent::div/parent::li"));
 
     private SelenideElement buttonSaveApplication = $(By.xpath(".//button[text()='Сохранить заявку']"));
 

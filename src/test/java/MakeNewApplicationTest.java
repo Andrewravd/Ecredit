@@ -68,8 +68,8 @@ public class MakeNewApplicationTest {
         steps.clickOnElement(creditScorePage.getButtonKasko());
         steps.clickOnElement(creditScorePage.getButtonCreditSubtype());
         steps.clickOnElement(creditScorePage.getCreditOffer());
-        steps.clickOnElement(creditScorePage.getButtonListOfCreditType());
-        steps.clickOnElement(creditScorePage.getCreditWithInsurance());
+//        steps.clickOnElement(creditScorePage.getButtonListOfCreditType());
+//        steps.clickOnElement(creditScorePage.getCreditWithInsurance());
         steps.clickOnElement(creditScorePage.getButtonSaveApplication());
         /* заполнение контактных данных клиента */
         steps.inputValue(creditScorePage.getFioInput(), Parameters.FIO);
