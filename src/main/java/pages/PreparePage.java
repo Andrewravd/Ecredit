@@ -59,7 +59,7 @@ public class PreparePage {
 
     private SelenideElement jobTitle = $(By.xpath("//div[text()='Название должности']" + "/following-sibling::input"));
 
-    private SelenideElement job = $(By.xpath(".//mark[text()='Доцент']/parent::span/parent::button"));
+    private SelenideElement job = $(By.xpath(".//mark[text()='Аварийный']/parent::span/parent::button"));
 
     private SelenideElement employer = $(By.xpath("//div[text()=" + "'Юридическое название места работы или ИНН организации']/preceding-sibling::div/input"));
 
