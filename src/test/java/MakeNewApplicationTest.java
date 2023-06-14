@@ -1,8 +1,10 @@
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Description;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.chrome.ChromeOptions;
 import pages.CreditScorePage;
 import pages.LoginPage;
 import pages.MainPage;
@@ -24,6 +26,9 @@ public class MakeNewApplicationTest {
         mainPage = new MainPage();
         creditScorePage = new CreditScorePage();
         preparePage = new PreparePage();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--start-maximized", "--incognito");
+        Configuration.browserCapabilities = options;
         Selenide.open(Parameters.URL);
     }
 
