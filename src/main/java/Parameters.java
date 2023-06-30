@@ -20,12 +20,12 @@ public class Parameters {
     public static final String DOWN_PAYMENT = "50";
 
     /* личная информация */
-    public static final String FIO = "ТИГРАНОВ ЯРОСЛАВ ТИМОФЕЕВИЧ";
-    public static final String PHONE = "(990) 209-35-20";
+    public static final String FIO = "ВЕСЕЛОВ КОНСТАНТИН КИРИЛЛОВИЧ";
+    public static final String PHONE = "(931) 872-92-50";
     /* паспорт */
-    public static final String BIRTH_DAY = "23.01.1997";
-    public static final String PASSPORT = "3921 686220";
-    public static final String PASSPORT_DATE_OF_ISSUE = "02.02.2022";
+    public static final String BIRTH_DAY = "15.01.1985";
+    public static final String PASSPORT = "5117 548523";
+    public static final String PASSPORT_DATE_OF_ISSUE = "02.02.2023";
     /* водительское удостоверение */
     public static final String DATE_DRIVING_LICENCE = "01.01.2020";
     /* адрес регистрации */

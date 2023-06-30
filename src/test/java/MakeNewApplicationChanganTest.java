@@ -10,9 +10,7 @@ import pages.LoginPage;
 import pages.MainPage;
 import pages.PreparePage;
 
-
-
-public class MakeNewApplicationTest {
+public class MakeNewApplicationChanganTest {
     private Steps steps;
     private LoginPage loginPage;
     private MainPage mainPage;
@@ -63,9 +61,9 @@ public class MakeNewApplicationTest {
 //        steps.clickOnElement(creditScorePage.getDocuments());
 //        steps.inputValue(creditScorePage.getDateOfIssueEpts(), Parameters.DATE_OF_ISSUE);
         /* выбор марки, модели, комплектации */
-        steps.clickOnElementInDropDown(creditScorePage.getBrand(), creditScorePage.getBrandOmoda());
-        steps.clickOnElementInDropDown(creditScorePage.getModel(), creditScorePage.getModelOmoda());
-        steps.clickOnElementInDropDown(creditScorePage.getVehicleEquipment(), creditScorePage.getVehicleEquipmentOmoda());
+        steps.clickOnElementInDropDown(creditScorePage.getBrand(), creditScorePage.getBrandChangan());
+        steps.clickOnElementInDropDown(creditScorePage.getModel(), creditScorePage.getModelChangan());
+        steps.clickOnElementInDropDown(creditScorePage.getVehicleEquipment(), creditScorePage.getVehicleEquipmentChangan());
         /* заполнение блока "Рассчитать кредит" */
         steps.clearThenInputValue(creditScorePage.getDownPayment(), creditScorePage.getDownPaymentInput(),
                 Parameters.DOWN_PAYMENT);
