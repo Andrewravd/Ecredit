@@ -20,14 +20,19 @@ public class CreditScorePage {
 
     private SelenideElement brandOmoda = $(By.xpath("//p[text()='OMODA']/parent::li"));
 
+    private SelenideElement brandChangan = $(By.xpath("//p[text()='Changan']/parent::li"));
+
     private SelenideElement model = $(By.xpath("//div[@id ='model']/div/div"));
 
     private SelenideElement modelOmoda = $(By.xpath("//p[text()='C5']/parent::li"));
+
+    private SelenideElement modelChangan = $(By.xpath("//p[text()='Alsvin']/parent::li"));
 
     private SelenideElement vehicleEquipment = $(By.xpath("//div[@id ='version']/div/div"));
 
     private SelenideElement vehicleEquipmentOmoda = $(By.xpath("//p[text()='Ultimate 1.5Т" +
             " 147 л.с. CVT (2022)']/parent::li"));
+    private SelenideElement vehicleEquipmentChangan = $(By.xpath("//p[text()='DLX 1.5']/parent::li"));
 
     private SelenideElement yearOfIssue = $(By.xpath(".//div[text()='Год выпуска']/parent::div"));
 
@@ -208,6 +213,18 @@ public class CreditScorePage {
 
     public SelenideElement getCreditWithInsurance() {
         return creditWithInsurance;
+    }
+
+    public SelenideElement getBrandChangan() {
+        return brandChangan;
+    }
+
+    public SelenideElement getModelChangan() {
+        return modelChangan;
+    }
+
+    public SelenideElement getVehicleEquipmentChangan() {
+        return vehicleEquipmentChangan;
     }
 }
 

@@ -1,5 +1,7 @@
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import io.qameta.allure.Step;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.ru.И;
 import org.openqa.selenium.Keys;
 
 import java.time.Duration;
@@ -11,7 +13,12 @@ import static com.codeborne.selenide.Selenide.switchTo;
 
 
 public class Steps {
-    @Step("Авторизация пользователя {SelenideElement}")
+    @Given("Отрывается сайт {string} ")
+    public void openUrl(String arg0){
+        Selenide.open(arg0);
+    }
+
+    @И("Пользователь авторизуется, используя логин {string} и пароль {string}")
     public void login(SelenideElement login, SelenideElement password, SelenideElement buttonSignIn) {
         login.shouldBe(enabled, Duration.ofSeconds(60));
         password.shouldBe(enabled, Duration.ofSeconds(60));
@@ -21,21 +28,18 @@ public class Steps {
         buttonSignIn.click();
 
     }
-
-    @Step("Клик по элементу {SelenideElement}")
+    
     public void clickOnElement(SelenideElement element) {
         element.shouldBe(enabled, Duration.ofSeconds(60));
         element.click();
 
     }
-
-    @Step("Поле заполнено {SelenideElement}")
+    
     public void checkInputIsNotEmpty(SelenideElement element) {
         element.shouldBe(not(empty), Duration.ofSeconds(60));
 
     }
-
-    @Step("выбор элемента {SelenideElement} из выпадающего списка")
+    
     public void clickOnElementInDropDown(SelenideElement element, SelenideElement dropDownElement) {
         element.shouldBe(enabled, Duration.ofSeconds(60));
         element.click();
@@ -43,8 +47,7 @@ public class Steps {
         dropDownElement.click();
 
     }
-
-    @Step("заполнение поля и потверждение выбора кликом")
+    
     public void clickOnElementAndConfirm(SelenideElement element, String value, SelenideElement dropDownElement) {
         element.shouldBe(enabled, Duration.ofSeconds(60));
         element.sendKeys(value);
@@ -52,8 +55,7 @@ public class Steps {
         dropDownElement.shouldBe(exist, Duration.ofSeconds(10));
         dropDownElement.click();
     }
-
-    @Step("заполнение поля и потверждение выбора через ENTER")
+    
     public void inputValueAndConfirm(SelenideElement element, String value) {
         element.shouldBe(enabled, Duration.ofSeconds(60));
         element.sendKeys(value);
@@ -62,7 +64,7 @@ public class Steps {
         element.sendKeys(Keys.ENTER);
     }
 
-    @Step("очищение поля {SelenideElement}")
+    
     public void clearInput(SelenideElement element) {
         element.shouldBe(enabled, Duration.ofSeconds(60));
         element.click();
@@ -70,16 +72,14 @@ public class Steps {
         element.sendKeys(Keys.BACK_SPACE);
 
     }
-
-    @Step("заполнение поля {SelenideElement}")
+    
     public void inputValue(SelenideElement element, String value) {
         element.shouldBe(enabled, Duration.ofSeconds(60));
         element.click();
         element.sendKeys(value);
         element.shouldBe(not(empty), Duration.ofSeconds(60));
     }
-
-    @Step("перезаполнение поля {SelenideElement}")
+    
     public void clearThenInputValue(SelenideElement div, SelenideElement input, String value) {
         div.shouldBe(visible, Duration.ofSeconds(60));
         div.click();
@@ -91,20 +91,17 @@ public class Steps {
         input.shouldBe(not(empty), Duration.ofSeconds(60));
     }
 
-    @Step("загрузка файла в карман {String}")
     public void uploadDocument(SelenideElement element, String path) {
         element.shouldBe(enabled, Duration.ofSeconds(60));
         element.sendKeys(path);
 
     }
 
-    @Step("Проверка отображения элемента {SelenideElement}")
     public void isElementDisplayed(SelenideElement element) {
         element.shouldBe(visible, Duration.ofSeconds(60));
 
     }
 
-    @Step("закрытие всплывающего окна {SelenideElement}")
     public void close_frame(SelenideElement element) {
         try {
 //            element.shouldBe(Condition.visible, Duration.ofSeconds(60));
@@ -112,5 +109,10 @@ public class Steps {
             $("#carrotquest-messenger-body-big-cont > div.popup__controls > div").click();
         } catch (NoSuchElementException e) {
         }
+    }
+
+    @Given("Отрывается страница {string}")
+    public void отрываетсяСтраница(String url) {
+        Selenide.open(url);
     }
 }
