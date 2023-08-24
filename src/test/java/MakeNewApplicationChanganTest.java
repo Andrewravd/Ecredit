@@ -69,7 +69,7 @@ public class MakeNewApplicationChanganTest {
                 Parameters.DOWN_PAYMENT);
         steps.clearInput(creditScorePage.getInsuranceAmount());
         steps.clickOnElement(creditScorePage.getButtonKasko());
-        steps.clickOnElement(creditScorePage.getButtonCreditSubtype());
+//        steps.clickOnElement(creditScorePage.getButtonCreditSubtype());
         steps.clickOnElement(creditScorePage.getCreditOffer());
 //        steps.clickOnElement(creditScorePage.getButtonListOfCreditType());
 //        steps.clickOnElement(creditScorePage.getCreditWithInsurance());
@@ -77,7 +77,6 @@ public class MakeNewApplicationChanganTest {
         /* заполнение контактных данных клиента */
         steps.inputValue(creditScorePage.getFioInput(), Parameters.FIO);
         steps.inputValue(creditScorePage.getClientPhoneInput(), Parameters.PHONE);
-        Selenide.sleep(3000);
         steps.clickOnElement(creditScorePage.getSaveApplicationButton());
         /* загрузка документов клиента */
         steps.uploadDocument(preparePage.getInputDocuments(), Parameters.PASSPORT_PATH);

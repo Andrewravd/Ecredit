@@ -20,11 +20,11 @@ public class Parameters {
     public static final String DOWN_PAYMENT = "50";
 
     /* личная информация */
-    public static final String FIO = "ВЕСЕЛОВ КОНСТАНТИН КИРИЛЛОВИЧ";
+    public static final String FIO = "ШИРЯЕВ КИРИЛЛ ИГОРЕВИЧ";
     public static final String PHONE = "(931) 872-92-50";
     /* паспорт */
-    public static final String BIRTH_DAY = "15.01.1985";
-    public static final String PASSPORT = "5117 548523";
+    public static final String BIRTH_DAY = "20.03.1982";
+    public static final String PASSPORT = "4317 38234";
     public static final String PASSPORT_DATE_OF_ISSUE = "02.02.2023";
     /* водительское удостоверение */
     public static final String DATE_DRIVING_LICENCE = "01.01.2020";
@@ -39,7 +39,7 @@ public class Parameters {
     public static final String EMPLOYER = "БАНК ГПБ";
     public static final String START_DATE = "01.01.2020";
     /* доход в месяц */
-    public static final String SALARY = "400000";
+    public static final String SALARY = "150000";
     public static final String ADDITIONAL_INCOME = "0";
 
 }
