@@ -6,6 +6,9 @@ public class Parameters {
     public static final String PASSPORT_PATH = "/Users/andrew/new ecredit/src/main/resources/passport.pdf";
     public static final String DRIVERS_PATH = "/Users/andrew/new ecredit/src/main/resources/drivers.pdf";
     public static final String CONCEDENCE_PATH = "/Users/andrew/new ecredit/src/main/resources/Soglasije.pdf";
+    public static final String FOTO_PATH = "/Users/andrew/new ecredit/src/main/resources/Foto.jpg";
+    public static final String ZKBO_PATH = "/Users/andrew/new ecredit/src/main/resources/ZKBO.pdf";
+
 
     /* учетная запись */
     public static final String LOGIN = "gzpbank@ecredit.one";

@@ -36,8 +36,19 @@ public class Steps {
     private final SelenideElement blockCar = $x(".//h1/parent::div");
     private final ElementsCollection buttonSendtoTheBank = $$x(".//a[text()='Отправить заявку']");
     private final SelenideElement gosporramButton =$x(".//div[text()='Рассчитать с Госпрограммой']/parent::button");
-
-
+    private final SelenideElement poppapWindow =$x(".//a[.='Перейти в профиль']/parent::div/preceding-sibling::div/a");
+    private final SelenideElement continueApplicationButton =$x(".//span[contains(text(),'Заявка одобрена')]/parent::td/following-sibling::td/a[1]");
+    private SelenideElement continueWithEcreditButton=$x(".//span[contains(text(), 'ПРОВЕСТИ СДЕЛКУ ')]/parent::a");
+    private SelenideElement inputPts =$x(".//h4[.='Загрузить ПТС']/parent::div/parent::div/following-sibling::input");
+    private SelenideElement inputVin =$x(".//input[@label='Серия, номер ПТС / ЭПТС']/parent::div/parent::div/preceding-sibling::div/div/input[@label='VIN автомобиля']");
+    private SelenideElement inputDkp =$x(".//h4[.='Загрузить договор купли-продажи']/parent::div/parent::div/following-sibling::input");
+    private SelenideElement inputFoto = $x(".//h4[.='Загрузите фотографию клиента']/parent::div/parent::div/following-sibling::input");
+    private SelenideElement rekvizitsButton = $x(".//div[.='Реквизиты получателей денежных средств проверены']/parent::button");
+    private SelenideElement inputDatePts =$x(".//p[.='Дата выдачи ПТС / ЭПТС*']/following-sibling::div/div/input");
+    private SelenideElement inputDataDkp = $x(".//p[.='Дата ДКП*']/following-sibling::div/div/input");
+    private SelenideElement sendapplicationToTheBank = $x(".//button[.='Отменить']/following-sibling::button");
+    private SelenideElement inputZKBO = $x(".//h4[.='Загрузить подписанные документы']/parent::div/parent::div/following-sibling::input");
+    private SelenideElement addDopProduct =$x(".//input[@label='На страховки, руб.']/parent::div/parent::div/parent::div/button");
     @Before
     public void setUp() {
         Configuration configuration = new Configuration();
@@ -351,5 +362,80 @@ public class Steps {
         SelenideElement gosprogramText = $x(".//div[text()='" + gosprogrammaName + "']/preceding-sibling::div");
         gosprogramText.shouldBe(enabled, Duration.ofSeconds(1000)).click();
 
+    }
+
+    @And("Закрывается всплывающее окно")
+    public void закрываетсяВсплывающееОкно() {
+        poppapWindow.shouldBe(enabled, Duration.ofSeconds(10)).click();
+    }
+
+    @Then("Нажата кнопка Оформить кредит")
+    public void нажимаетсяКнопкаОформитьКредит() {
+        continueApplicationButton.shouldBe(enabled, Duration.ofSeconds(10)).click();
+    }
+
+    @And("Нажата кнопка Провести сделку через Е-кредит")
+    public void нажатаКнопкаПровестиСделкуЧерезЕКредит() {
+        continueWithEcreditButton.shouldBe(enabled, Duration.ofSeconds(10)).click();
+    }
+
+    @And("Загружен документ ПТС")
+    public void загруженДокументПТС() {
+        inputPts.shouldBe(enabled, Duration.ofSeconds(10)).sendKeys(Parameters.DRIVERS_PATH);
+    }
+
+    @And("Заполнен ВИН автомобиля значением {string}")
+    public void заполненВИНАвтомобиляЗначением(String vin) {
+        inputVin.sendKeys(vin);
+    }
+
+    @And("Поле даты выдачи ЭПТС заполнено значением {string}")
+    public void полеДатыВыдачиЭПТСЗаполненоЗначением(String date) {
+        SelenideElement element = $x(".//p[.='Дата выдачи ПТС / ЭПТС*']/parent::div");
+        element.click();
+        inputDatePts.click();
+        inputDatePts.sendKeys(date);
+    }
+
+    @And("Загружен документ ДКП")
+    public void загруженДокументДКП() {
+        inputDkp.sendKeys(Parameters.CONCEDENCE_PATH);
+    }
+
+    @And("Загружено фото клиента")
+    public void загруженоФотоКлиента() {
+        inputFoto.sendKeys(Parameters.FOTO_PATH);
+    }
+
+    @Then("Подтверждены реквизиты получателя денежных средств")
+    public void подтвержденыРеквизитыПолучателяДенежныхСредств() {
+        rekvizitsButton.shouldBe(enabled, Duration.ofSeconds(10)).click();
+    }
+
+    @When("Обновляется страница")
+    public void обновляетсяСтраница() {
+        Selenide.sleep(600000);
+        Selenide.refresh();
+    }
+    @And("Поле Дата ДКП заполнена значением {string}")
+    public void полеДатаДКПЗаполненаЗначением(String date) {
+        SelenideElement element = $x(".//p[.='Дата ДКП*']/parent::div");
+        element.click();
+        inputDataDkp.sendKeys(date);
+    }
+
+    @Then("Нажата кнопка Отправить в банк условия сделки")
+    public void нажатаКнопкаОтправитьВБанкУсловияСделки() {
+        sendapplicationToTheBank.shouldBe(enabled, Duration.ofSeconds(10)).click();
+    }
+
+    @Then("Загружено подписанное ЗКБО")
+    public void загруженоПодписанноеЗКБО() {
+        inputZKBO.sendKeys(Parameters.ZKBO_PATH);
+    }
+
+    @And("Нажата кнопка Добавить Доп.продукт")
+    public void нажатаКнопкаДобавитьДопПродукт() {
+        addDopProduct.shouldBe(enabled, Duration.ofSeconds(10)).click();
     }
 }
